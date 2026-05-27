@@ -66,3 +66,24 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.location-container{
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  margin: 30px 0;
+  border: 1px solid #213547;
+  width: 600px;
+  padding: 15px;
+}
+
+.image {
+  height: auto;
+  width: 300px;
+  margin-right: 10px;
+}
+
+.info{
+  width: 300px;
+  text-align: start;
+}
