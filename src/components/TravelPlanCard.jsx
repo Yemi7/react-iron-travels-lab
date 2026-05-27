@@ -8,6 +8,18 @@ export function TravelPlanCard(props) {
         const newList = currentList.filter((locationObj) => locationObj.id !== id);
         setCurrentList(newList);
     }
+    const [likedList, setLikedList] = useState([]);
+    const likeButton = (locationObj) => {
+        const alreadyLiked = likedList.filter((likedObj)=>{
+            return likedObj.id === locationObj.id
+        })
+        if(alreadyLiked.length === 0) {
+            setLikedList([...likedList, locationObj]);
+        } else{
+            setLikedList(likedList.filter((likedObj)=> likedObj.id !== locationObj.id))
+        }
+
+    }
     return (
         <div className='main-flex'>
             <div className='list'>
@@ -25,6 +37,8 @@ export function TravelPlanCard(props) {
                                     {locationObj.allInclusive && <span className='label all-inclusive'>All-Inclusive</span>}
                                 </aside>
                                 <button onClick={() => { deleteButton(locationObj.id) }} className='delete-button'>Delete</button>
+                                {/* create a button with a function that adds a key liked:true */}
+                                <button onClick={() => { likeButton(locationObj), console.log(likedList); }}>Liked</button>
                             </div>
                         </div>
                     )
@@ -32,9 +46,19 @@ export function TravelPlanCard(props) {
             </div>
             <div className='favs'>
                 <h3>Favourites</h3>
-                <div className='favs-container'>
-                    <img src={props.plan[0].image} className='favs-image' />
-                </div>
+                {likedList.map((favLocationObj) => {
+                    return (
+                        <div className="favs-container">
+                            <div className='card'>
+                                <img src={favLocationObj.image} className='favs-image' />
+                                <div className="card-info">
+                                <h3>{favLocationObj.destination} ({favLocationObj.days} Days)</h3>
+                                <h3>€{favLocationObj.totalCost}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                })}
             </div>
 
         </div>
