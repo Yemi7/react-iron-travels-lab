@@ -1,6 +1,7 @@
 import logo from "./assets/logo.png";
 import "./App.css";
 import { TravelList } from "./components/TravelList";
+import { TravelPlanCard } from "./components/TravelPlanCard";
 
 function App() {
   return (

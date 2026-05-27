@@ -87,3 +87,30 @@ button:focus-visible {
   width: 300px;
   text-align: start;
 }
+
+.label-container{
+  margin-bottom: 15px;;
+}
+
+.label{
+  padding: 0.2em;
+  border-radius: 3px;
+  margin:0 8px 0 0;
+
+}
+
+.great-deal{
+  background-color: #078900;
+}
+
+.premium{
+  background-color: #535bf2;
+}
+.all-inclusive{
+  background-color: #535bf2;
+
+}
+
+.delete-button {
+  color: #535bf2;
+}
